@@ -1,0 +1,42 @@
+<div class="loggin w-100 m-auto" style="margin: 100px auto!important;">
+    <form [formGroup]="UserForm" (ngSubmit)="onSubmit()" class="row g-3">
+        <div class="col-md-12">
+          <label for="email" class="form-label">Email</label>
+          <input [ngClass]="{ 'is-invalid' : UserForm.controls['email'].invalid && UserForm.controls['email'].touched, 'is-valid' : UserForm.controls['email'].valid  }" 
+                 formControlName="email"
+                 type="email" 
+                 class="form-control" 
+                 id="email" 
+                 aria-describedby="emailHelp" 
+                 required>
+          <div class="invalid-feedback">
+            Ingrese el Email correctamente.
+          </div>
+        </div>
+        <div class="col-md-12">
+          <label for="contraseña" class="form-label">Contraseña</label>
+          <input [ngClass]="{'is-invalid' : UserForm.controls['contraseña'].value == '' && UserForm.controls['contraseña'].touched, 'is-valid' : UserForm.controls['contraseña'].value !== '' }"
+                 formControlName="contraseña" 
+                 type="password" 
+                 class="form-control" 
+                 id="contraseña"  
+                 required>
+          <div class="invalid-feedback">
+            Ingrese la contraseña.
+          </div>
+        </div>
+        <!--<div class="col-md-6">
+          <label for="validationServer03" class="form-label">City</label>
+          <input type="text" class="form-control is-invalid" id="validationServer03" aria-describedby="validationServer03Feedback" required>
+          <div id="validationServer03Feedback" class="invalid-feedback">
+            Please provide a valid city.
+          </div>
+        </div>-->
+        <div class="col-12">
+          <button [disabled]="UserForm.invalid" class="btn btn-primary" type="submit">Entrar</button>
+        </div>
+
+        
+
+    </form>
+</div>
